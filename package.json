@@ -4,7 +4,8 @@
   "description": "Mi Primer CRUD",
   "main": "index.js",
   "scripts": {
-    "start": "npm start"
+    "start": "npm start",
+    "dev": "nodemon src/Index.js"
   },
   "repository": {
     "type": "git",
