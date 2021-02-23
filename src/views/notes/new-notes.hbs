@@ -1,0 +1,32 @@
+{{!-- manejo de alerta de los errores a la vista --}}
+{{#each errors}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+{{text}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  
+</div>
+{{/each}}
+{{!-- fin --}}
+
+<div class="col-md-4 mx-auto">
+    <div class="car">
+        <div class="card-header">
+            <h3>Nueva Nota</h3>
+        </div>
+        <div class="card-body">
+            <form action="/notes/new-notes" method="POST">
+                <div class="form-group">
+                  <input type="text" name="title" class="form-control" placeholder="Titulo" autofocus>  
+                </div>
+                <br>
+                <div class="form-group">
+                    <textarea name="description" class="form-control" placeholder="Descripcion"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit ">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
