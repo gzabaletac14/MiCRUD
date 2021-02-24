@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 //conexion a la base de datos
-mongoose.connect('mongodb://localhost/notes-db-app',{
+mongoose.connect('mongodb://localhost/NotesApp',{
     useCreateIndex: true,
     useNewUrlParser:true,
     useFindAndModify:false,

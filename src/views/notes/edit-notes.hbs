@@ -1,0 +1,25 @@
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar Nota</h3>
+            <div class="card-body">
+                {{!-- enviamos el metodo put oculto pero recibe un post --}}
+                <form action="/notes/edit-notes/{{notes._id}}?_method=PUT" method="POST">
+                      <input type="hidden" name="_method" value="PUT">   
+                <!-- mostramos la informacion que viene de la bd para cada nota -->
+                    <div class="form-group">
+                        <input type="text" name= "title" class="form-control" placeholder="Titulo" value="{{notes.title}}">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <textarea name= "description" class="form-control" placeholder="Descripcion">{{notes.description}}</textarea>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block "type="submit">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

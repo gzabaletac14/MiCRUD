@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const methodoverride = require('method-override');
 const session = require('express-session');
 const { hasUncaughtExceptionCaptureCallback } = require('process');
+const flash = require('connect-flash');
 
 //initializations
 const app = express();
@@ -38,8 +39,20 @@ app.use(session({
    saveUninitialized: true
 }));
 
+//para enviar mensajes a las vistas de las acciones 
+app.use(flash());
 
 //global variables
+
+//funcion para enviar mensajes a las vistas de las acciones (flash)
+app.use((req,res,next) =>{
+   res.locals.success_msg = req.flash('success_msg'); //mensaje para exitosos
+   res.locals.delete_msg = req.flash('delete_msg'); // mensajes para eliminados
+   res.locals.update_msg = req.flash('update_msg'); // mensajes para eliminados
+
+   next();
+});
+
 //routes
 app.use(require('./routes/index'));
 app.use(require('./routes/users'));
