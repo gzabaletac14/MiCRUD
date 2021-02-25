@@ -5,10 +5,12 @@ const methodoverride = require('method-override');
 const session = require('express-session');
 const { hasUncaughtExceptionCaptureCallback } = require('process');
 const flash = require('connect-flash');
+const passport = require('passport');
 
 //initializations
 const app = express();
 require('./database');
+require('./config/passport');
 
 //setting
 //configuramos el puerto del server
@@ -39,8 +41,13 @@ app.use(session({
    saveUninitialized: true
 }));
 
+//guardar el usuario en session
+app.use(passport.initialize());
+app.use(passport.session());
+
 //para enviar mensajes a las vistas de las acciones 
 app.use(flash());
+
 
 //global variables
 
@@ -49,7 +56,7 @@ app.use((req,res,next) =>{
    res.locals.success_msg = req.flash('success_msg'); //mensaje para exitosos
    res.locals.delete_msg = req.flash('delete_msg'); // mensajes para eliminados
    res.locals.update_msg = req.flash('update_msg'); // mensajes para eliminados
-
+   res.locals.error_msg  = req.flash('error_msg'); // mensajes para eliminados
    next();
 });
 

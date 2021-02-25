@@ -1,1 +1,33 @@
-<h1>Registrar</h1>
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card text-center">
+            <div class="card-header">
+            <h3>Registro de Usuarios</h3>
+            </div>
+            <div class="card-body">
+            <form action="/users/signup" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" name= "name" placeholder="Nombre"  >
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="email" class="form-control" name= "email"  placeholder="Email"  >
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="password" class="form-control" name= "password" placeholder="Contraseña"  >
+                </div>
+                <br>
+                 <div class="form-group">
+                    <input type="password" class="form-control" name= "confirm_password" placeholder="Confirmar Contraseña"  >
+                </div>
+                <br>
+                <div class="form-group ">
+                   <button  type="submit" class="btn btn-primary center-block">Guardar</button>
+                   <button  type="reset"  class="btn btn-primary btn-block">Limpiar</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
