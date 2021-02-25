@@ -5,16 +5,11 @@
     </div>
 {{/if}}
 
-{{#if delete_msg}}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{delete_msg}}
+
+{{#if error_msg}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{error_msg}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
     </div>
 {{/if}}
 
-{{#if update_msg}}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{update_msg}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
-    </div>
-{{/if}}

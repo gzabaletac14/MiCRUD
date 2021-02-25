@@ -12,19 +12,15 @@ router.post('/notes/new-notes',async (req, res) => {
  const {title , description} = req.body;
 //validar los parametros de entrada
 const errors = [];
-if(!title){
-errors.push({text: 'Por favor ingrese un titulo'});
-}
-if(!description){
-    errors.push({text: 'Por favor ingrese una descripcion'});
+    if(!title){
+    errors.push({text: 'Por favor ingrese un titulo'});
+    }
+    if(!description){
+        errors.push({text: 'Por favor ingrese una descripcion'});
     }
 //enviar los errores a la vista
     if(errors.length > 0 ){
-        res.render('notes/new-notes',{
-        errors,
-        title,
-        description
-        });
+        res.render('notes/new-notes',{errors,title,description});
         
     } else {
         //guardamos en la base de datos
@@ -52,7 +48,7 @@ router.get('/notes/edit/:id',async (req,res)=>{
 router.put('/notes/edit-notes/:id', async (req,res) => {
     const {title , description} = req.body;
    await Note.findByIdAndUpdate(req.params.id, {title,description});
-   req.flash('update_msg','Nota actualizada exitosamente.') //se usa flash para enviar un mensaje de exitoso a la vista.    
+   req.flash('success_msg','Nota actualizada exitosamente.')   
    res.redirect('/notes');
 });
 //fin api de actualizar notas
@@ -60,7 +56,7 @@ router.put('/notes/edit-notes/:id', async (req,res) => {
 //api de eliminar notas
 router.delete('/notes/delete/:id', async (req,res) =>{
     await Note.findByIdAndDelete(req.params.id);
-     req.flash('delete_msg','Nota eliminada exitosamente.') //se usa flash para enviar un mensaje de exitoso a la vista.    
+    req.flash('success_msg','Nota eliminada exitosamente.')   
     res.redirect('/notes');
 
 });
