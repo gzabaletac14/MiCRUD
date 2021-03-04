@@ -3,18 +3,18 @@ const router = require('express').Router();
 const User = require('../models/User');
 const passport = require('passport');
 
-// router.get('/users/signin',(req,res) => {
-// res.render('users/signin');
-// });
+router.get('/users/signip',(req,res) => {
+res.render('users/signip');
+});
 
 // router.get('/users/signup',(req,res) => {
 //     res.render('users/signup');
 // });
     
 //api para autenticarse 
-router.post('/users/signin',passport.authenticate('local',{
+router.post('/users/signip',passport.authenticate('local',{
     successRedirect:'/notes', //si la info enviada por el usuario esta bien envia a las grilla de notas
-    failureRedirect:'/users/signin',//si la info enviada por el usuario es errada se envia para que nuevamente ingrese las credenciales
+    failureRedirect:'/users/signip',//si la info enviada por el usuario es errada se envia para que nuevamente ingrese las credenciales
     failureFlash: true // para enviar mensajes usando flash
 
 }));
@@ -58,7 +58,7 @@ const errors = [];
         newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
         req.flash('success_msg','Usuario Registrado.') //se usa flash para enviar un mensaje de exitoso a la vista.    
-        res.redirect('/users/signin');   //redireciona al login de la aplicacion
+        res.redirect('/users/signip');   //redireciona al login de la aplicacion
     }
 });
 
