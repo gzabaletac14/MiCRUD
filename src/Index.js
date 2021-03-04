@@ -57,6 +57,7 @@ app.use((req,res,next) =>{
    res.locals.delete_msg = req.flash('delete_msg'); // mensajes para eliminados
    res.locals.update_msg = req.flash('update_msg'); // mensajes para eliminados
    res.locals.error_msg  = req.flash('error_msg'); // mensajes para eliminados
+   res.locals.error  = req.flash('error'); // mensajes para eliminados
    next();
 });
 
